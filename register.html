@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- FONT AWESOME LINK-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!--MAIN CSS-->
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="script.js" defer></script>
+    <title>Register - Yuan's Portfolio</title>
+</head>
+<body>
+    <!-- HEADER DESIGN-->
+    <header class="header">
+        <a href="home.html" class="logo">Yuan</a>
+
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <label for="menu-toggle" class="menu-icon">
+            <i class="fa-solid fa-bars"></i>
+        </label>
+
+        <nav class="navbar">
+            <a href="home.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="register.html" class="active">Register</a>
+        </nav>
+        <button id="switch-theme">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M480-120q-150 0-255-105T120-480q0-150 105-255t255-105q14 0 27.5 1t26.5 3q-41 29-65.5 75.5T444-660q0 90 63 153t153 63q55 0 101-24.5t75-65.5q2 13 3 26.5t1 27.5q0 150-105 255T480-120Z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M338.5-338.5Q280-397 280-480t58.5-141.5Q397-680 480-680t141.5 58.5Q680-563 680-480t-58.5 141.5Q563-280 480-280t-141.5-58.5ZM200-440H40v-80h160v80Zm720 0H760v-80h160v80ZM440-760v-160h80v160h-80Zm0 720v-160h80v160h-80ZM256-650l-101-97 57-59 96 100-52 56Zm492 496-97-101 53-55 101 97-57 59Zm-98-550 97-101 59 57-100 96-56-52ZM154-212l101-97 55 53-97 101-59-57Z"/></svg>
+        </button>
+    </header>
+
+    <!-- REGISTER SECTION -->
+    <section class="register-section" id="register">
+        <div class="register-container">
+            <h2 class="heading">Join My <span>Community</span></h2>
+
+            <!-- Decorative Image -->
+            <img src="images/laptopYellowMug.jpg" 
+                 alt="Web development workspace with code on multiple monitors" 
+                 class="register-image">
+
+            <!-- What You'll Receive Section -->
+            <div class="register-intro">
+                <h3>What You'll Receive</h3>
+                <ul>
+                    <li><strong>Monthly Newsletter:</strong> Updates on my latest projects, coding challenges I've solved, and web development insights</li>
+                    <li><strong>Exclusive Content:</strong> Behind-the-scenes look at my learning journey and tutorials on topics I'm mastering</li>
+                    <li><strong>Early Access:</strong> Be the first to know about new projects, blog posts, and portfolio updates</li>
+                    <li><strong>Community Connection:</strong> Join a network of aspiring developers and tech enthusiasts</li>
+                    <li><strong>Resource Sharing:</strong> Get access to my curated list of helpful tools, tutorials, and learning materials</li>
+                </ul>
+            </div>
+
+            <!-- Registration Form -->
+            <form class="register-form" id="registrationForm" onsubmit="return validateForm()">
+                <!-- Full Name -->
+                <div class="form-group">
+                    <label for="fullname">Full Name *</label>
+                    <input type="text" id="fullname" name="fullname" placeholder="Enter your full name">
+                    <span id="nameError" class="error"></span>
+                </div>
+
+                <!-- Preferred Username -->
+                <div class="form-group">
+                    <label for="username">Preferred Username *</label>
+                    <input type="text" id="username" name="username" placeholder="Choose a unique username">
+                    <span id="usernameError" class="error"></span>
+                    
+                </div>
+                <!--Email-->
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email ">
+                    <span id="emailError" class="error"></span>
+                </div>
+                <!--Password-->
+                <div class="form-group">
+                    <label for="password">Password *</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your Password ">
+                    <span id="passwordError" class="error"></span>
+                </div>
+                <!--Confirm Password-->
+                <div class="form-group">
+                    <label for="cfm-pass">Confirm Password *</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your Password ">
+                    <span id="confirmPasswordError" class="error"></span>
+                </div>
+                <div class="gender-group">
+                    <label>Gender:</label>
+                    <input type="radio" id="male" name="gender" value="male">
+                    <label for="male">Male</label>
+                    <input type="radio" id="female" name="gender" value="female">
+                    <label for="female">Female</label>
+                    <input type="radio" id="other" name="gender" value="other">
+                    <label for="other">Other</label>
+                    <span id="genderError" class="error"></span>
+                </div>
+
+                <!-- Date of Birth -->
+                <div class="form-group">
+                    <label for="dob">Date of Birth *</label>
+                    <input type="date" id="dob" name="dob">
+                </div>
+
+                <!-- Interest Category -->
+                <div class="form-group">
+                    <label>Experience Level *</label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="beginner" name="interest" value="beginner">
+                            <label for="beginner">Beginner - Just starting my web development journey</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="intermediate" name="interest" value="intermediate">
+                            <label for="intermediate">Intermediate - I have some experience with HTML/CSS/JavaScript</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="expert" name="interest" value="expert">
+                            <label for="expert">Expert - I'm experienced in full-stack development</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Terms Agreement -->
+                <div class="form-group">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="terms" name="terms">
+                        <label for="terms">
+                            I agree to receive periodic updates and newsletters about web development topics. 
+                            I understand my information will be kept private and I can unsubscribe at any time. *
+                        </label>
+                    </div>
+                    <span id="termsError" class="error"></span>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn">Join the Community</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER DESIGN-->
+    <footer class="footer">
+        <div class="footer-text">
+            <p>Copyright &copy; 2026 by @yudecodes | All Rights Reserved.</p>
+            <p class="contact-info-footer">Email: yuan.daz@example.com | Phone: +63 912 345 6789</p>
+        </div>
+
+        <div class="footer-iconTop">
+            <a href="#register" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></a>
+        </div>
+    </footer>
+</body>
+</html>

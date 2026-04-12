@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- FONT AWESOME LINK-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!--MAIN CSS-->
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="script.js" defer></script>
+    <title>Contact - Yuan's Portfolio</title>
+</head>
+<body>
+    <!-- HEADER DESIGN-->
+    <header class="header">
+        <a href="home.html" class="logo">Yuan</a>
+
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <label for="menu-toggle" class="menu-icon">
+            <i class="fa-solid fa-bars"></i>
+        </label>
+
+        <nav class="navbar">
+            <a href="home.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="contact.html" class="active">Contact</a>
+            <a href="register.html">Register</a>
+        </nav>
+        <button id="switch-theme">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M480-120q-150 0-255-105T120-480q0-150 105-255t255-105q14 0 27.5 1t26.5 3q-41 29-65.5 75.5T444-660q0 90 63 153t153 63q55 0 101-24.5t75-65.5q2 13 3 26.5t1 27.5q0 150-105 255T480-120Z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M338.5-338.5Q280-397 280-480t58.5-141.5Q397-680 480-680t141.5 58.5Q680-563 680-480t-58.5 141.5Q563-280 480-280t-141.5-58.5ZM200-440H40v-80h160v80Zm720 0H760v-80h160v80ZM440-760v-160h80v160h-80Zm0 720v-160h80v160h-80ZM256-650l-101-97 57-59 96 100-52 56Zm492 496-97-101 53-55 101 97-57 59Zm-98-550 97-101 59 57-100 96-56-52ZM154-212l101-97 55 53-97 101-59-57Z"/></svg>
+        </button>
+    </header>
+
+    <!-- CONTACT SECTION DESIGN-->
+    <section class="contact" id="contact">
+        <h2 class="heading">Contact <span>Me</span></h2>
+        <p style="text-align: center; font-size: 1.8rem; max-width: 70rem; margin: 0 auto 3rem;">
+            I'd love to hear from you! Whether you have a question, project idea, or just want to connect, 
+            feel free to reach out using the form below.
+        </p>
+
+        <form action="#" method="post" onsubmit="return validateContactForm()">
+            <div class="input-box">
+                    <input type="text" id="contactfullname" name="contactfullname" placeholder="Full name">
+                    <span id="contactfullnameError" class="error"></span>
+                    
+                    <input type="email" id="contactemail" name="contactemail" placeholder="Email Address">
+                    <span id="contactemailError" class="error"></span>
+            </div>
+                <textarea name="contactmessage" id="contactmessage" cols="30" rows="10" placeholder="Your Message"></textarea>
+                <span id="contactmessageError" class="error"></span>
+                <input type="submit" value="Send Message" class="btn">
+        </form>
+    </section>
+
+    <!-- RESOURCES TABLE SECTION -->
+    <section class="resources-section" style="background: var(--snd-bg-color); padding: 5rem 9%;">
+        <h2 class="heading">Helpful <span>Resources</span></h2>
+        <div class="resources-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Resource Name</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a href="https://developer.mozilla.org/" target="_blank">MDN Web Docs</a></td>
+                        <td>Comprehensive documentation for HTML, CSS, and JavaScript - my go-to reference for web development</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://www.freecodecamp.org/" target="_blank">freeCodeCamp</a></td>
+                        <td>Free interactive coding tutorials and certifications that helped me build my foundation in web development</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://css-tricks.com/" target="_blank">CSS-Tricks</a></td>
+                        <td>Amazing resource for CSS techniques, tips, and best practices for creating beautiful designs</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://github.com/" target="_blank">GitHub</a></td>
+                        <td>Essential platform for version control and collaboration - where I host my projects and contribute to open source</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://stackoverflow.com/" target="_blank">Stack Overflow</a></td>
+                        <td>Massive community of developers helping each other solve coding problems - a lifesaver when debugging</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- MAP SECTION -->
+    <section class="map-section-wrapper" style="padding: 5rem 9%; background: var(--bg-color);">
+        <div class="map-section">
+            <h3>Find Me Here</h3>
+            <p style="font-size: 1.6rem; margin-bottom: 2rem;">
+                Based in Bauang, La Union, Philippines - Available for remote opportunities nationwide
+            </p>
+            <div class="map-container">
+                <!-- Embedded Google Maps iframe for La Union, Philippines -->
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d245281.77013604056!2d121.72899999999999!3d17.6!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3385a7c7fe862b87%3A0xae89ede7e79a8d2e!2sBauang%20%2C%20LaUnion%20%2C%20Philippines!5e0!3m2!1sen!2sph!4v1234567890123!5m2!1sen!2sph" 
+                    width="100%" 
+                    height="450" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Map showing La Union, Philippines location">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXTERNAL LINKS SECTION -->
+    <section class="external-links-wrapper" style="padding: 5rem 9%; background: var(--snd-bg-color);">
+        <div class="external-links">
+            <h3>Learn More About Web Development</h3>
+            <div class="links-grid">
+                <div class="link-card">
+                    <i class="fa-brands fa-google"></i>
+                    <h4>Google Web Fundamentals</h4>
+                    <p>Best practices for modern web development from Google's expert team</p>
+                    <a href="https://developers.google.com/web" target="_blank">Visit Site →</a>
+                </div>
+                <div class="link-card">
+                    <i class="fa-brands fa-youtube"></i>
+                    <h4>Traversy Media</h4>
+                    <p>Excellent YouTube channel with practical web development tutorials and crash courses</p>
+                    <a href="https://www.youtube.com/@TraversyMedia" target="_blank">Visit Channel →</a>
+                </div>
+                <div class="link-card">
+                    <i class="fa-solid fa-code"></i>
+                    <h4>W3Schools</h4>
+                    <p>Beginner-friendly tutorials and references for web development languages and frameworks</p>
+                    <a href="https://www.w3schools.com/" target="_blank">Visit Site →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER DESIGN-->
+    <footer class="footer">
+        <div class="footer-text">
+            <p>Copyright &copy; 2026 by @yudecodes | All Rights Reserved.</p>
+            <p class="contact-info-footer">Email: yuan.daz@example.com | Phone: +63 912 345 6789</p>
+        </div>
+
+        <div class="footer-iconTop">
+            <a href="#contact" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></a>
+        </div>
+    </footer>
+</body>
+</html>

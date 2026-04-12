@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loading...</title>
+  <link rel="stylesheet" href="style.css">
+ 
+</head>
+<body class="index-body">
+  <div class="index-loader-container">
+    <div class="index-logo"><img class="index-logo"src="images/LogoYuan.png" alt=" "><div>
+    <h1 class="index-h1">My Personal Website</h1>
+    <div class="index-spinner"></div>
+    <div class="index-loading-text">
+      Loading<span class="index-dots" id="dots">...</span>
+    </div>
+  </div>
+
+  <script>
+    // Animate dots
+    let dotCount = 0;
+    const dotsEl = document.getElementById('dots');
+    
+    const dotInterval = setInterval(() => {
+      dotCount = (dotCount + 1) % 4;
+      dotsEl.textContent = '.'.repeat(dotCount);
+    }, 500);
+
+    // Load for 3 seconds then redirect
+    setTimeout(() => {
+      clearInterval(dotInterval);
+      document.querySelector('.index-loader-container').classList.add('fade-out');
+      
+      // Redirect after fade out
+      setTimeout(() => {
+        window.location.href = 'home.html';
+      }, 500);
+    }, 3000);
+  </script>
+</body>
+</html>

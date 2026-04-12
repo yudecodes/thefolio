@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- FONT AWESOME LINK-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!--MAIN CSS-->
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="script.js" defer></script>
+    <title>Yuan's Portfolio - Home</title>
+</head>
+<body>
+    <!-- HEADER DESIGN-->
+    <header class="header">
+        <a href="home.html" class="logo">Yuan </a>
+        
+
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <label for="menu-toggle" class="menu-icon">
+            <i class="fa-solid fa-bars"></i>
+        
+        </label>
+       
+
+        <nav class="navbar">
+            <a href="home.html" class="active">Home</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="register.html">Register</a>
+          
+        </nav>
+        <button id="switch-theme">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M480-120q-150 0-255-105T120-480q0-150 105-255t255-105q14 0 27.5 1t26.5 3q-41 29-65.5 75.5T444-660q0 90 63 153t153 63q55 0 101-24.5t75-65.5q2 13 3 26.5t1 27.5q0 150-105 255T480-120Z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M338.5-338.5Q280-397 280-480t58.5-141.5Q397-680 480-680t141.5 58.5Q680-563 680-480t-58.5 141.5Q563-280 480-280t-141.5-58.5ZM200-440H40v-80h160v80Zm720 0H760v-80h160v80ZM440-760v-160h80v160h-80Zm0 720v-160h80v160h-80ZM256-650l-101-97 57-59 96 100-52 56Zm492 496-97-101 53-55 101 97-57 59Zm-98-550 97-101 59 57-100 96-56-52ZM154-212l101-97 55 53-97 101-59-57Z"/></svg>
+        </button>
+        
+        
+    </header>
+    
+    <!-- HOME SECTION DESIGN / HERO SECTION-->
+    <section class="home" id="home">
+        <div class="home-content">
+            <h3>Hi, I'm</h3>
+            <h1>Yuan </h1>
+            <h3>CCS Student / Aspiring Website Designer</h3>
+            <p>
+                Welcome to my Web Developer portfolio! I'm Yuan Dec Daz, 
+                a Computer Science student who is passionate about building
+                responsive and user-friendly websites. I'm currently learning 
+                full-stack development to expand my skills and prepare for 
+                future job opportunities in the tech industry.
+            </p>
+            <div class="social-media">
+                <a href="#" aria-label="Facebook Profile"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#" aria-label="Instagram Profile"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" aria-label="TikTok Profile"><i class="fa-brands fa-tiktok"></i></a>
+            </div>
+            <a href="contact.html" class="btn">Get in Touch</a>
+        </div>
+
+        <div class="home-img">
+            <img src="images/MePic.jpg" alt="Yuan Dec Daz - Computer Science Student and Aspiring Web Developer">
+        </div>
+    </section>
+
+    <!-- KEY HIGHLIGHTS SECTION -->
+    <section class="highlights" id="highlights">
+        <h2 class="heading">My <span>Key Skills</span></h2>
+        <div class="highlights-content">
+            <h3>What I’m Learning & Building</h3>
+            <ul class="highlights-list">
+                <li><i class="fa-solid fa-code"></i> <strong>Responsive Web Design:</strong> Building mobile-first websites using HTML and CSS that adapt smoothly across phones, tablets, and desktops. </li>
+                <li><i class="fa-solid fa-palette"></i> <strong>Modern CSS Styling:</strong> Using CSS3, Flexbox, Grid, and basic animations to create clean, user-friendly, and visually consistent layouts.</li>
+                <li><i class="fa-solid fa-rocket"></i> <strong>Continuous Learner:</strong> Actively learning new tools, frameworks, and best practices through school projects, online resources, and hands-on practice.</li>
+                <li><i class="fa-solid fa-lightbulb"></i> <strong>Problem Solving:</strong> Applying logical thinking and creativity to debug code, complete programming tasks, and improve project functionality.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- PREVIEW SECTION 1: ABOUT ME -->
+    <section class="preview about-preview" id="about-preview">
+        <div class="about-img">
+            <img src="images/Lean.jpg" alt="Yuan Dec Daz - Personal photo showing my personality and passion for technology">
+        </div>
+
+        <div class="about-content">
+            <h2 class="heading">About <span>Me</span></h2>
+            <h3>CCS Student / Aspiring Website Designer</h3>
+            <p>
+                Hi! I'm Yuan Dec Daz, a 20-year-old third-year Computer Science student at DMMMSU-SLUC 
+                with a strong desire to achieve a financially stable future. I'm passionate about 
+                becoming a full-stack developer, as I believe it will open better opportunities 
+                for my career.
+            </p>
+            <p>
+                I enjoy spending my free time playing online games. My favorite color is blue, 
+                and I'm a huge fan of both dogs and cats. I consider myself a "jack of all trades, 
+                master of none"—I know a little about many things, but I'm constantly working to 
+                improve my skills and turn knowledge into mastery.
+            </p>
+            <a href="about.html" class="btn">Read More</a>
+        </div>
+    </section>
+
+    <!-- PREVIEW SECTION 2: CONTACT -->
+    <section class="preview contact-preview" id="contact-preview">
+        <h2 class="heading">Get In <span>Touch</span></h2>
+        <div class="contact-preview-content">
+            <p>
+                Have a project in mind or want to collaborate? I'm always excited to connect 
+                with fellow developers, potential clients, and anyone interested in web development. 
+                Feel free to reach out through my contact form or connect with me on social media.
+            </p>
+            <div class="contact-info">
+                <div class="info-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>yudecodes@example.com</span>
+                </div>
+                <div class="info-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+63 987 345 6789</span>
+                </div>
+                <div class="info-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>La Union, Philippines</span>
+                </div>
+            </div>
+            <a href="contact.html" class="btn">Contact Me</a>
+        </div>
+    </section>
+
+    <!-- PREVIEW SECTION 3: REGISTER -->
+    <section class="preview register-preview" id="register-preview">
+        <h2 class="heading">Stay <span>Connected</span></h2>
+        <div class="register-preview-content">
+            <p>
+                Want to follow my web development journey and get updates on my latest projects? 
+                Sign up for my newsletter to receive exclusive content, coding tips, and insights 
+                into the world of full-stack development. Join a community of fellow tech enthusiasts!
+            </p>
+            <div class="register-benefits">
+                <div class="benefit-item">
+                    <i class="fa-solid fa-newspaper"></i>
+                    <h4>Monthly Newsletter</h4>
+                    <p>Get updates on my projects and web dev tips</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="fa-solid fa-code-branch"></i>
+                    <h4>Project Insights</h4>
+                    <p>Behind-the-scenes look at my coding process</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="fa-solid fa-users"></i>
+                    <h4>Community Access</h4>
+                    <p>Connect with other aspiring developers</p>
+                </div>
+            </div>
+            <a href="register.html" class="btn">Sign Up Now</a>
+        </div>
+    </section>
+
+    <!-- FOOTER DESIGN-->
+    <footer class="footer">
+        <div class="footer-text">
+            <p>Copyright &copy; 2026 by @yudecodes | All Rights Reserved.</p>
+            <p class="contact-info-footer">Email: yudecodes@example.com | Phone: +63 987 345 6789</p>
+        </div>
+
+        <div class="footer-iconTop">
+            <a href="#home" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></a>
+        </div>
+    </footer>
+</body>
+</html>
