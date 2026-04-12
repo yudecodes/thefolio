@@ -118,7 +118,7 @@ export default function About() {
                 </p>
               </div>
               <div className="content-image">
-                <img src="/images/codingLaptop.jpg" alt="Coding on laptop" />
+                <img src={`${process.env.REACT_APP_BACKEND_URL}/images/codingLaptop.jpg`} alt="Coding on laptop" />
               </div>
             </div>
           </div>
@@ -139,7 +139,7 @@ export default function About() {
 
               </div>
               <div className="content-image">
-                <img src="/images/laptopYellowMug.jpg" alt="Modern workspace" />
+                <img src={`${process.env.REACT_APP_BACKEND_URL}/images/laptopYellowMug.jpg`} alt="Modern workspace" />
               </div>
             </div>
           </div>

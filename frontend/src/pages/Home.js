@@ -35,7 +35,7 @@ export default function Home() {
 
         <div className="home-img">
           {/* Ensure your images are in the public/images/ folder */}
-          <img src="/images/MePic.jpg" alt="Yuan Dec Daz - Computer Science Student and Aspiring Web Developer" />
+          <img src={`${process.env.REACT_APP_BACKEND_URL}/images/MePic.jpg`} alt="Yuan Dec Daz - Computer Science Student and Aspiring Web Developer" />
         </div>
       </section>
 
@@ -68,7 +68,7 @@ export default function Home() {
       {/* PREVIEW SECTION 1: ABOUT ME */}
       <section className="preview about-preview" id="about-preview">
         <div className="about-img">
-          <img src="/images/Lean.jpg" alt="Yuan Dec Daz" />
+          <img src={`${process.env.REACT_APP_BACKEND_URL}/images/Lean.jpg`} alt="Yuan Dec Daz" />
         </div>
 
         <div className="about-content">
