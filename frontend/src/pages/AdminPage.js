@@ -533,7 +533,7 @@ const AdminPage = () => {
                   <div style={{ marginTop: '1rem' }}>
                     <img
                       src={`http://localhost:5000/uploads/${selectedPost.image}`}
-                      alt="Post image"
+                      alt="Post"
                       style={{
                         maxWidth: '100%',
                         maxHeight: '300px',
