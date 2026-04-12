@@ -532,17 +532,6 @@ const AdminPage = () => {
                   <strong style={{ color: 'var(--text-color)' }}>Image:</strong>
                   <div style={{ marginTop: '1rem' }}>
                     <img
-<<<<<<< HEAD
-                        src={`http://localhost:5000/uploads/${selectedPost.image}`}
-                        alt="Post"
-                        style={{
-                          maxWidth: '100%',
-                          maxHeight: '300px',
-                          borderRadius: '0.5rem',
-                          border: '1px solid rgba(89,178,244,0.1)',
-                        }}
-                      />
-=======
                       src={`http://localhost:5000/uploads/${selectedPost.image}`}
                       alt="Post"
                       style={{
@@ -552,7 +541,6 @@ const AdminPage = () => {
                         border: '1px solid rgba(89,178,244,0.1)',
                       }}
                     />
->>>>>>> 178bdad95aed9813738c8def17d4a52f4de1dc66
                   </div>
                 </div>
               )}

@@ -263,8 +263,8 @@ export default function Register() {
 
         </form>
 
-        <p style={{ marginTop: '16px', textAlign: 'center', fontSize: '0.9rem' }}>
-          Already have an account? <Link to="/login">Login here</Link>
+        <p style={{ marginTop: '24px', textAlign: 'center', fontSize: '1.2rem', fontWeight: '500' }}>
+          Already have an account? <Link to="/login" style={{ textDecoration: 'underline', color: '#59B2f4', fontWeight: '700', transition: '0.3s ease' }} className="login-link">Login here</Link>
         </p>
 
       </div>

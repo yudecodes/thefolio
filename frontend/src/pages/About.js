@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 
 const quizData = [
@@ -184,16 +185,17 @@ export default function About() {
 
       {/* QUIZ SECTION */}
       <section className="quiz-body">
-        <div className="quiz-container">
+        <div className={`quiz-container ${showResult ? 'result-mode' : ''}`}>
           {!showResult ? (
             <>
               <h2 className="quiz-h2">{quizData[currentQuestion].question}</h2>
               <div className="quiz-options">
                 {quizData[currentQuestion].options.map((option, index) => (
                   <button
-                    key={index}
+                    key={`${currentQuestion}-${index}`}
                     className={`quiz-option ${selectedOption === index ? 'selected' : ''}`}
                     onClick={() => setSelectedOption(index)}
+                    style={{ width: '100%' }}
                   >
                     {option}
                   </button>
@@ -208,10 +210,39 @@ export default function About() {
               </button>
             </>
           ) : (
-            <div className="quiz-result">
-              <h2>Quiz Completed!</h2>
-              <p>Your score: {score} / {quizData.length}</p>
-              <button className="quiz-button" onClick={() => {setShowResult(false); setCurrentQuestion(0); setScore(0);}}>Restart</button>
+            <div style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              textAlign: 'center',
+              gap: '1.2rem',
+              padding: '3rem 0',
+              width: '100%',
+              flex: 1
+            }}>
+              <div style={{ fontSize: '5rem', lineHeight: 1 }}>🎉</div>
+              <h2 style={{ fontSize: '2.5rem', fontWeight: 700, color: 'var(--main-color)', margin: 0 }}>
+                Quiz Completed!
+              </h2>
+              <p style={{ fontSize: '4rem', fontWeight: 700, color: 'var(--main-color)', margin: 0 }}>
+                {score} / {quizData.length}
+              </p>
+              <p style={{ fontSize: '1.4rem', color: 'var(--text-color)', margin: 0, opacity: 0.8 }}>
+                {score <= 4 ? "Keep practicing, you'll get better!" : score <= 7 ? "Good job! Keep it up!" : "Excellent work! You're a pro!"}
+              </p>
+              <button
+                style={{ width: '100%', marginTop: '1rem' }}
+                className="quiz-button"
+                onClick={() => { setShowResult(false); setCurrentQuestion(0); setScore(0); }}>
+                Try Again
+              </button>
+              <p style={{ fontSize: '1.2rem', fontWeight: 500, color: 'var(--text-color)', margin: 0 }}>
+                Ready to join the community?{' '}
+                <Link to="/register" style={{ textDecoration: 'underline', color: '#59B2f4', fontWeight: 700 }}>
+                  Register here
+                </Link>
+              </p>
             </div>
           )}
         </div>
