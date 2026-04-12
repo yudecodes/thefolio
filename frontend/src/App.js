@@ -3,7 +3,6 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ProtectedRoute from './components/ProtectedRoute';
-import Loading from './components/Loading';
 import Home from './pages/Home';
 import HomePage from './pages/HomePage';
 import Contact from './pages/Contact';

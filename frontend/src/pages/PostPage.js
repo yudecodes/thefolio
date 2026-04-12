@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link, useParams, useNavigate } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import API from '../api/axios';
 import { useAuth } from '../context/AuthContext';
 
@@ -7,7 +7,6 @@ const BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
 
 const PostPage = () => {
   const { id } = useParams();
-  const navigate = useNavigate();
   const { user } = useAuth();
 
   const [post, setPost] = useState(null);
