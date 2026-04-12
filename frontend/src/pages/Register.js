@@ -149,7 +149,7 @@ export default function Register() {
         <h2 className="heading">Join My <span>Community</span></h2>
 
         <img
-          src={`${process.env.REACT_APP_BACKEND_URL}/images/laptopYellowMug.jpg`}
+          src="/images/laptopYellowMug.jpg"
           alt="Web development workspace with code on multiple monitors"
           className="register-image"
         />
