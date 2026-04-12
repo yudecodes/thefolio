@@ -23,7 +23,7 @@ function App() {
 
       <Routes>
         {/* ── Public routes ───────────────────────── */}
-        <Route path="/"          element={<Loading />} />
+        <Route path="/"          element={<Navigate to="/feed" replace />} />
         <Route path="/home"      element={<Home />} />
         <Route path="/about"     element={<About />} />
         <Route path="/contact"   element={<Contact />} />
