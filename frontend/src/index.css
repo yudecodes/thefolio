@@ -1000,6 +1000,10 @@ blockquote cite {
     .index-loader-container {
       text-align: center;
       color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
 
     .index-logo {
