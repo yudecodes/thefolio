@@ -1,4 +1,3 @@
-// frontend/src/pages/Register.jsx
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import API from '../api/axios';
@@ -20,6 +19,24 @@ const isValidAge = (dateString) => {
   return age >= 18;
 };
 
+// Eye icons
+const EyeIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+    fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+    <circle cx="12" cy="12" r="3"/>
+  </svg>
+);
+
+const EyeOffIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+    fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/>
+    <path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/>
+    <line x1="1" y1="1" x2="23" y2="23"/>
+  </svg>
+);
+
 export default function Register() {
   const navigate = useNavigate();
   const { setUser } = useAuth();
@@ -36,10 +53,12 @@ export default function Register() {
     terms: false
   });
 
-  const [errors, setErrors]     = useState({});
-  const [apiError, setApiError] = useState('');
-  const [loading, setLoading]   = useState(false);
-  const [success, setSuccess]   = useState(false);
+  const [errors, setErrors]         = useState({});
+  const [apiError, setApiError]     = useState('');
+  const [loading, setLoading]       = useState(false);
+  const [success, setSuccess]       = useState(false);
+  const [showPassword, setShowPassword]               = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -47,8 +66,8 @@ export default function Register() {
       ...prev,
       [name]: type === 'checkbox' ? checked : value
     }));
-    if (errors[name])  setErrors(prev => ({ ...prev, [name]: '' }));
-    if (apiError)      setApiError('');
+    if (errors[name]) setErrors(prev => ({ ...prev, [name]: '' }));
+    if (apiError)     setApiError('');
   };
 
   const handleSubmit = async (e) => {
@@ -97,7 +116,6 @@ export default function Register() {
 
     setErrors(newErrors);
 
-    // ── DEBUG: see validation result in console ──────────────
     console.log('isValid:', isValid);
     console.log('formData:', formData);
 
@@ -112,12 +130,10 @@ export default function Register() {
           password: formData.password,
         };
 
-        // ── DEBUG: confirm payload before sending ────────────
         console.log('📤 Sending to API:', payload);
 
         const { data } = await API.post('/auth/register', payload);
 
-        // ── DEBUG: confirm success response ─────────────────
         console.log('✅ Register success:', data);
 
         localStorage.setItem('token', data.token);
@@ -129,7 +145,6 @@ export default function Register() {
         }, 1500);
 
       } catch (err) {
-        // ── DEBUG: log full error so we can see what happened ─
         console.log('❌ Error:', err.message);
         console.log('❌ Response status:', err.response?.status);
         console.log('❌ Response data:', err.response?.data);
@@ -197,15 +212,77 @@ export default function Register() {
             {errors.email && <span className="error">{errors.email}</span>}
           </div>
 
+          {/* Password with eye toggle */}
           <div className="form-group">
             <label htmlFor="password">Password *</label>
-            <input type="password" id="password" name="password" placeholder="Enter your Password" value={formData.password} onChange={handleChange} />
+            <div style={{ position: 'relative' }}>
+              <input
+                type={showPassword ? 'text' : 'password'}
+                id="password"
+                name="password"
+                placeholder="Enter your Password"
+                value={formData.password}
+                onChange={handleChange}
+                style={{ paddingRight: '2.8rem', width: '100%' }}
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword(prev => !prev)}
+                style={{
+                  position: 'absolute',
+                  right: '0.75rem',
+                  top: '50%',
+                  transform: 'translateY(-50%)',
+                  background: 'none',
+                  border: 'none',
+                  cursor: 'pointer',
+                  color: 'var(--text-color, #888)',
+                  padding: 0,
+                  display: 'flex',
+                  alignItems: 'center'
+                }}
+                aria-label={showPassword ? 'Hide password' : 'Show password'}
+              >
+                {showPassword ? <EyeOffIcon /> : <EyeIcon />}
+              </button>
+            </div>
             {errors.password && <span className="error">{errors.password}</span>}
           </div>
 
+          {/* Confirm Password with eye toggle */}
           <div className="form-group">
             <label htmlFor="confirmPassword">Confirm Password *</label>
-            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your Password" value={formData.confirmPassword} onChange={handleChange} />
+            <div style={{ position: 'relative' }}>
+              <input
+                type={showConfirmPassword ? 'text' : 'password'}
+                id="confirmPassword"
+                name="confirmPassword"
+                placeholder="Confirm your Password"
+                value={formData.confirmPassword}
+                onChange={handleChange}
+                style={{ paddingRight: '2.8rem', width: '100%' }}
+              />
+              <button
+                type="button"
+                onClick={() => setShowConfirmPassword(prev => !prev)}
+                style={{
+                  position: 'absolute',
+                  right: '0.75rem',
+                  top: '50%',
+                  transform: 'translateY(-50%)',
+                  background: 'none',
+                  border: 'none',
+                  cursor: 'pointer',
+                  color: 'var(--text-color, #888)',
+                  padding: 0,
+                  display: 'flex',
+                  alignItems: 'center'
+                }}
+                aria-label={showConfirmPassword ? 'Hide password' : 'Show password'}
+              >
+                {showConfirmPassword ? <EyeOffIcon /> : <EyeIcon />}
+              </button>
+            </div>
             {errors.confirmPassword && <span className="error">{errors.confirmPassword}</span>}
           </div>
 
