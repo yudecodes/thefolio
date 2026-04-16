@@ -123,7 +123,7 @@ const PostPage = () => {
           <div className='post-full-header'>
             <h1 className='post-full-title'>{post.title}</h1>
             <div className='post-full-meta'>
-              <span>By <strong>{post.author?.name}</strong></span>
+              <span>By <Link to={`/profile/users/${post.author?._id}`} style={{ color: '#59B2f4', textDecoration: 'none', cursor: 'pointer' }}><strong>{post.author?.name}</strong></Link></span>
               <span>•</span>
               <span>{new Date(post.createdAt).toLocaleDateString()}</span>
             </div>
@@ -209,7 +209,11 @@ const PostPage = () => {
                 <div key={comment._id} className='comment'>
                   <div className='comment-header'>
                     <strong style={{ color: 'var(--main-color)', fontSize: '1.3rem' }}>
-                      {comment.author?.name || 'Anonymous'}
+                      {comment.author ? (
+                        <Link to={`/profile/users/${comment.author._id}`} style={{ color: 'var(--main-color)', textDecoration: 'none', cursor: 'pointer' }}>
+                          {comment.author.name}
+                        </Link>
+                      ) : 'Anonymous'}
                     </strong>
                     <span style={{ color: 'var(--ft-color)', fontSize: '1.1rem' }}>
                       {new Date(comment.createdAt).toLocaleDateString()}

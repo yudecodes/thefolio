@@ -10,6 +10,7 @@ import PostPage from './pages/PostPage';
 import LoginPage from './pages/LoginPage';
 import Register from './pages/Register';
 import ProfilePage from './pages/ProfilePage';
+import UserProfilePage from './pages/UserProfilePage';
 import CreatePostPage from './pages/CreatePostPage';
 import EditPostPage from './pages/EditPostPage';
 import AdminPage from './pages/AdminPage';
@@ -37,6 +38,10 @@ function App() {
 
         <Route path="/profile" element={
           <ProtectedRoute><ProfilePage /></ProtectedRoute>
+        } />
+
+        <Route path="/profile/users/:userId" element={
+          <ProtectedRoute><UserProfilePage /></ProtectedRoute>
         } />
 
         <Route path="/create-post" element={

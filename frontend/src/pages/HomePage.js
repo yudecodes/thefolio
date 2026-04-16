@@ -264,8 +264,6 @@ const HomePage = () => {
       ) : (
         <div className='posts-grid'>
           {filtered.map(post => {
-            // Always destructure with safe defaults so unvisited posts
-            // never accidentally mirror the state of an opened post.
             const cs = {
               open: false,
               loading: false,
@@ -289,7 +287,7 @@ const HomePage = () => {
                   </h3>
                   <p className='post-card-excerpt'>{post.body?.substring(0, 120)}...</p>
                   <small className='post-card-meta'>
-                    By <span className='post-author-name'>{post.author?.name}</span> · {new Date(post.createdAt).toLocaleDateString()}
+                    By <Link to={`/profile/users/${post.author?._id}`} style={{ color: '#59B2f4', textDecoration: 'none', cursor: 'pointer' }} className='post-author-name'>{post.author?.name}</Link> · {new Date(post.createdAt).toLocaleDateString()}
                   </small>
 
                   {/* Edit/Delete only for author or admin */}
@@ -387,7 +385,11 @@ const HomePage = () => {
                                       {(comment.author?.name || 'A')[0].toUpperCase()}
                                     </div>
                                     <span style={{ fontWeight: 700, color: 'var(--main-color)', fontSize: '1.35rem' }}>
-                                      {comment.author?.name || 'Anonymous'}
+                                      {comment.author ? (
+                                        <Link to={`/profile/users/${comment.author._id}`} style={{ color: 'var(--main-color)', textDecoration: 'none', cursor: 'pointer' }}>
+                                          {comment.author.name}
+                                        </Link>
+                                      ) : 'Anonymous'}
                                     </span>
                                     <span style={{ color: 'var(--ft-color)', fontSize: '1.15rem' }}>
                                       · {new Date(comment.createdAt).toLocaleDateString()}
