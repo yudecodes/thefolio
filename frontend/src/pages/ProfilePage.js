@@ -5,6 +5,24 @@ import API from '../api/axios';
 
 const BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
 
+// ── Eye / EyeOff SVG icons ───────────────────────────────────
+const EyeIcon = () => (
+  <svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24'
+    fill='none' stroke='currentColor' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round'>
+    <path d='M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z'/>
+    <circle cx='12' cy='12' r='3'/>
+  </svg>
+);
+
+const EyeOffIcon = () => (
+  <svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24'
+    fill='none' stroke='currentColor' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round'>
+    <path d='M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94'/>
+    <path d='M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19'/>
+    <line x1='1' y1='1' x2='23' y2='23'/>
+  </svg>
+);
+
 const ProfilePage = () => {
   const { user, setUser } = useAuth();
 
@@ -16,8 +34,11 @@ const ProfilePage = () => {
   const [curPw, setCurPw] = useState('');
   const [newPw, setNewPw] = useState('');
 
+  const [showCurPw, setShowCurPw] = useState(false);
+  const [showNewPw, setShowNewPw] = useState(false);
+
   const [msg,     setMsg]     = useState('');
-  const [msgType, setMsgType] = useState(''); // 'success' | 'error'
+  const [msgType, setMsgType] = useState('');
   const [saving,  setSaving]  = useState(false);
 
   const showMsg = (text, type = 'success') => {
@@ -26,7 +47,6 @@ const ProfilePage = () => {
     setTimeout(() => setMsg(''), 4000);
   };
 
-  // ── Handle profile pic preview ───────────────────────────────
   const handlePicChange = (e) => {
     const file = e.target.files[0];
     if (!file) return;
@@ -34,7 +54,6 @@ const ProfilePage = () => {
     setPicPreview(URL.createObjectURL(file));
   };
 
-  // ── Update profile ───────────────────────────────────────────
   const handleProfile = async (e) => {
     e.preventDefault();
     setSaving(true);
@@ -53,7 +72,6 @@ const ProfilePage = () => {
     }
   };
 
-  // ── Change password ──────────────────────────────────────────
   const handlePassword = async (e) => {
     e.preventDefault();
     setSaving(true);
@@ -75,13 +93,26 @@ const ProfilePage = () => {
   const picSrc = picPreview
     || (user?.profilePic ? `${BASE_URL}/uploads/${user.profilePic}` : null);
 
+  // ── Reusable eye toggle button style ────────────────────────
+  const eyeBtnStyle = (active) => ({
+    position: 'absolute',
+    right: '1.5rem',
+    background: 'none',
+    border: 'none',
+    cursor: 'pointer',
+    padding: 0,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    color: active ? 'var(--main-color)' : 'var(--ft-color)',
+    transition: 'color .3s ease',
+  });
+
   return (
     <section className='profile-section'>
 
-      {/* ── Page heading ── */}
       <h2 className='heading'>My <span>Profile</span></h2>
 
-      {/* ── Feedback message ── */}
       {msg && (
         <p className={msgType === 'success' ? 'profile-msg-success' : 'profile-msg-error'}>
           {msgType === 'success' ? '✅' : '⚠'} {msg}
@@ -168,25 +199,47 @@ const ProfilePage = () => {
 
               <div className='form-group'>
                 <label>Current Password</label>
-                <input
-                  type='password'
-                  placeholder='Enter current password'
-                  value={curPw}
-                  onChange={e => setCurPw(e.target.value)}
-                  required
-                />
+                <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
+                  <input
+                    type={showCurPw ? 'text' : 'password'}
+                    placeholder='Enter current password'
+                    value={curPw}
+                    onChange={e => setCurPw(e.target.value)}
+                    required
+                    style={{ paddingRight: '4.5rem' }}
+                  />
+                  <button
+                    type='button'
+                    onClick={() => setShowCurPw(prev => !prev)}
+                    aria-label={showCurPw ? 'Hide password' : 'Show password'}
+                    style={eyeBtnStyle(showCurPw)}
+                  >
+                    {showCurPw ? <EyeOffIcon /> : <EyeIcon />}
+                  </button>
+                </div>
               </div>
 
               <div className='form-group'>
-                <label>New Password <span style={{fontWeight:400,fontSize:'1.2rem',color:'var(--ft-color)'}}>( min 6 chars, A-z-0 )</span></label>
-                <input
-                  type='password'
-                  placeholder='Enter new password'
-                  value={newPw}
-                  onChange={e => setNewPw(e.target.value)}
-                  required
-                  minLength={6}
-                />
+                <label>New Password <span style={{ fontWeight: 400, fontSize: '1.2rem', color: 'var(--ft-color)' }}>( min 6 chars, A-z-0 )</span></label>
+                <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
+                  <input
+                    type={showNewPw ? 'text' : 'password'}
+                    placeholder='Enter new password'
+                    value={newPw}
+                    onChange={e => setNewPw(e.target.value)}
+                    required
+                    minLength={6}
+                    style={{ paddingRight: '4.5rem' }}
+                  />
+                  <button
+                    type='button'
+                    onClick={() => setShowNewPw(prev => !prev)}
+                    aria-label={showNewPw ? 'Hide password' : 'Show password'}
+                    style={eyeBtnStyle(showNewPw)}
+                  >
+                    {showNewPw ? <EyeOffIcon /> : <EyeIcon />}
+                  </button>
+                </div>
               </div>
 
               <button type='submit' className='btn' disabled={saving}>
