@@ -85,6 +85,20 @@ router.get('/me', protect, async (req, res) => {
   res.json(user);
 });
 
+// ── GET /api/auth/users/:id ───────────────────────────────────
+// Returns a user's public profile (requires token)
+router.get('/users/:id', protect, async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id).select('-password');
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+    res.json(user);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
+
 // ── PUT /api/auth/profile ─────────────────────────────────────
 // Update name, bio, or upload a new profile picture
 router.put(
