@@ -9,6 +9,8 @@ import Contact from './pages/Contact';
 import PostPage from './pages/PostPage';
 import LoginPage from './pages/LoginPage';
 import Register from './pages/Register';
+import ForgotPasswordPage from './pages/ForgotPasswordPage';
+import ResetPasswordPage from './pages/ResetPasswordPage';
 import ProfilePage from './pages/ProfilePage';
 import UserProfilePage from './pages/UserProfilePage';
 import CreatePostPage from './pages/CreatePostPage';
@@ -29,6 +31,8 @@ function App() {
         <Route path="/contact"   element={<Contact />} />
         <Route path="/login"     element={<LoginPage />} />
         <Route path="/register"  element={<Register />} />
+        <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+        <Route path="/reset-password/:token" element={<ResetPasswordPage />} />
         <Route path="/posts/:id" element={<PostPage />} />
 
         {/* ── Protected routes ────────────────────── */}

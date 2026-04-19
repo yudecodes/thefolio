@@ -106,9 +106,16 @@ const LoginPage = () => {
                 {showPassword ? <EyeOffIcon /> : <EyeIcon />}
               </button>
             </div>
+            <div style={{ textAlign: 'right', marginTop: '.8rem' }}>
+              <Link to="/forgot-password" style={{ color: 'var(--main-color)', textDecoration: 'none', fontSize: '1.3rem', fontWeight: '500', transition: '.3s ease' }}
+                onMouseEnter={e => { e.currentTarget.style.color = 'var(--text-color)'; }}
+                onMouseLeave={e => { e.currentTarget.style.color = 'var(--main-color)'; }}>
+                Forgot password?
+              </Link>
+            </div>
           </div>
 
-          <button type="submit" className="btn" style={{ width: '100%', marginTop: '.5rem' }} disabled={loading}>
+          <button type="submit" className="btn" style={{ width: '100%', marginTop: '2rem' }} disabled={loading}>
             {loading ? 'Logging in…' : 'Login'}
           </button>
         </form>
